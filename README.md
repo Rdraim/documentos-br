@@ -87,3 +87,10 @@ Referência oficial: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao
 `normalizarCPF`, `normalizarCNPJ` e `normalizarCEP` retornam valor canônico validado ou `null`. Validação aceita formato bruto ou máscara exata; máscara de digitação continua tolerante.
 
 Exemplo executável com dados sintéticos: `node examples/uso.mjs`.
+
+
+## ☕ Apoie este trabalho
+
+Se este projeto te ajudou, considere me pagar um café. Qualquer valor é bem-vindo, e seu comentário também ajuda.
+
+[![Apoiar com Pix](assets/support/pix-pt-br.svg)](SUPPORT.md)
