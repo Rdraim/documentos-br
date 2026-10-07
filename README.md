@@ -2,13 +2,13 @@
 
 [English (United States)](README.en-US.md) · [Apoio voluntário](SUPPORT.md)
 
-## Revisão 1.1.0
+## Segurança e compatibilidade
 
 CNPJ alfanumérico e validação estrita de caracteres.
 
 CNPJ aceita A–Z e 0–9 nas 12 primeiras posições e dígitos numéricos nos dois verificadores, conforme ASCII menos 48 e módulo 11. Aceita letras minúsculas normalizadas. Validadores rejeitam caracteres inesperados, sem apagar letras para aceitar CPF/CEP inválido. Máscaras são conveniência de digitação. CEP verifica apenas 8 dígitos: não consulta existência. CPF/CNPJ válidos matematicamente não provam cadastro, titularidade ou identidade. Fixtures de teste não são dados de clientes.
 
-Baixe pelo GitHub; não é necessário instalar um pacote homônimo do npm. Para consumir em outro projeto, use uma revisão Git fixada (tag v1.1.0) ou copie o módulo e preserve a licença. Os exemplos abaixo usam importação local após o clone. Node.js 22 ou superior para os testes.
+Baixe pelo GitHub; não é necessário instalar um pacote homônimo do npm. Para consumir em outro projeto, use uma revisão Git fixada (tag v1.2.0) ou copie o módulo e preserve a licença. Os exemplos abaixo usam importação local após o clone. Node.js 22 ou superior para os testes.
 
 Validação e máscara de **CPF, CNPJ e CEP** para JavaScript. Sem dependência.
 
@@ -80,3 +80,10 @@ Código independente inspirado em problemas resolvidos no Nexus, projeto de Rodr
 [Como contribuir](CONTRIBUTING.md) · [Segurança](SECURITY.md) · [Apoio voluntário](SUPPORT.md)
 
 Referência oficial: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/programas-e-atividades/cnpj-alfanumerico
+
+
+## Uso prático — 1.2.0
+
+`normalizarCPF`, `normalizarCNPJ` e `normalizarCEP` retornam valor canônico validado ou `null`. Validação aceita formato bruto ou máscara exata; máscara de digitação continua tolerante.
+
+Exemplo executável com dados sintéticos: `node examples/uso.mjs`.

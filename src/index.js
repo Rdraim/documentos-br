@@ -7,11 +7,19 @@
    ============================================================================ */
 
 export const soDigitos = (v) => String(v ?? '').replace(/\D/g, '');
-const semMascara = (v) => String(v ?? '').trim().replace(/[.\/\-]/g, '');
+function semMascara(v, tipo) {
+  const s = String(v ?? '').trim();
+  const formatos = {
+    cpf: /^(?:\d{11}|\d{3}\.\d{3}\.\d{3}-\d{2})$/,
+    cnpj: /^(?:[A-Za-z0-9]{12}\d{2}|[A-Za-z0-9]{2}\.[A-Za-z0-9]{3}\.[A-Za-z0-9]{3}\/[A-Za-z0-9]{4}-\d{2})$/,
+    cep: /^(?:\d{8}|\d{5}-\d{3})$/,
+  };
+  return formatos[tipo].test(s) ? s.replace(/[.\/\-]/g, '') : '';
+}
 
 /** Valida CPF pelo dígito verificador. Aceita com ou sem máscara. */
 export function validarCPF(valor) {
-  const cpf = semMascara(valor);
+  const cpf = semMascara(valor, 'cpf');
   if (!/^\d{11}$/.test(cpf)) return false;
   if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
   const dv = (base, pesoInicial) => {
@@ -27,7 +35,7 @@ export function validarCPF(valor) {
 
 /** Valida CNPJ pelo dígito verificador. Aceita com ou sem máscara. */
 export function validarCNPJ(valor) {
-  const cnpj = semMascara(valor).toUpperCase();
+  const cnpj = semMascara(valor, 'cnpj').toUpperCase();
   if (!/^[A-Z0-9]{12}\d{2}$/.test(cnpj) || /^(\d)\1{13}$/.test(cnpj)) return false;
   const dv = (base) => {
     const pesos = base.length === 12
@@ -44,7 +52,7 @@ export function validarCNPJ(valor) {
 }
 
 /** Valida o FORMATO do CEP (8 dígitos). Não confere se o CEP existe. */
-export function validarCEP(valor) { return /^\d{8}$/.test(semMascara(valor)); }
+export function validarCEP(valor) { return /^\d{8}$/.test(semMascara(valor, 'cep')); }
 
 /** Máscara de CPF (000.000.000-00), funciona com entrada parcial. */
 export function mascararCPF(valor) {
@@ -70,8 +78,10 @@ export function mascararCEP(valor) {
 
 /** Detecta e valida CPF ou CNPJ pelo tamanho. */
 export function validarCpfCnpj(valor) {
-  const d = semMascara(valor);
-  if (d.length === 11) return validarCPF(d);
-  if (d.length === 14) return validarCNPJ(d);
-  return false;
+  return validarCPF(valor) || validarCNPJ(valor);
 }
+
+/** Normalização para persistência só retorna documento validado, ou null. */
+export const normalizarCPF = (v) => validarCPF(v) ? semMascara(v, 'cpf') : null;
+export const normalizarCNPJ = (v) => validarCNPJ(v) ? semMascara(v, 'cnpj').toUpperCase() : null;
+export const normalizarCEP = (v) => validarCEP(v) ? semMascara(v, 'cep') : null;
