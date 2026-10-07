@@ -12,7 +12,7 @@ CNPJ alfanumérico e validação estrita de caracteres.
 
 CNPJ aceita A–Z e 0–9 nas 12 primeiras posições e dígitos numéricos nos dois verificadores, conforme ASCII menos 48 e módulo 11. Aceita letras minúsculas normalizadas. Validadores rejeitam caracteres inesperados, sem apagar letras para aceitar CPF/CEP inválido. Máscaras são conveniência de digitação. CEP verifica apenas 8 dígitos: não consulta existência. CPF/CNPJ válidos matematicamente não provam cadastro, titularidade ou identidade. Fixtures de teste não são dados de clientes.
 
-Baixe pelo GitHub; não é necessário instalar um pacote homônimo do npm. Para consumir em outro projeto, use uma revisão Git fixada (tag v1.2.0) ou copie o módulo e preserve a licença. Os exemplos abaixo usam importação local após o clone. Node.js 22 ou superior para os testes.
+Baixe pelo GitHub; não é necessário instalar um pacote homônimo do npm. Para consumir em outro projeto, use uma revisão Git fixada (tag v1.2.1) ou copie o módulo e preserve a licença. Os exemplos abaixo usam importação local após o clone. Node.js 22 ou superior para os testes.
 
 Validação e máscara de **CPF, CNPJ e CEP** para JavaScript. Sem dependência.
 
@@ -23,7 +23,7 @@ entrada **parcial** (enquanto o usuário digita).
 ## Instalação
 
 ```bash
-git clone https://github.com/techrodrigo21-ux/documentos-br.git
+git clone https://github.com/Rdraim/documentos-br.git
 cd documentos-br
 npm test
 ```
@@ -108,7 +108,7 @@ Sou **Rodrigo Rodrigues**, criador do **Nexus** e destes projetos de código abe
 
 <p>
   <a href="#apoie-com-pix"><img src="assets/support/pix-pt-br.svg" width="190" height="44" alt="Apoiar com Pix"></a>
-  <a href="https://github.com/techrodrigo21-ux/documentos-br/issues/new?title=Coment%C3%A1rio%3A%20este%20projeto%20me%20ajudou"><img src="assets/support/comment-pt-br.svg" width="210" height="44" alt="Deixar um comentário"></a>
+  <a href="https://github.com/Rdraim/documentos-br/issues/new?title=Coment%C3%A1rio%3A%20este%20projeto%20me%20ajudou"><img src="assets/support/comment-pt-br.svg" width="210" height="44" alt="Deixar um comentário"></a>
 </p>
 
 ### Apoie com Pix
@@ -129,7 +129,7 @@ Você também pode apoiar compartilhando o projeto, relatando um problema, melho
 
 ### Seu comentário também faz diferença
 
-[Conte como o projeto te ajudou](https://github.com/techrodrigo21-ux/documentos-br/issues/new?title=Coment%C3%A1rio%3A%20este%20projeto%20me%20ajudou). Vou gostar de saber o que você criou, o que aprendeu e o que poderia ficar mais claro para quem está começando.
+[Conte como o projeto te ajudou](https://github.com/Rdraim/documentos-br/issues/new?title=Coment%C3%A1rio%3A%20este%20projeto%20me%20ajudou). Vou gostar de saber o que você criou, o que aprendeu e o que poderia ficar mais claro para quem está começando.
 
 O comentário é bem-vindo com ou sem doação. Preserve sua privacidade: não publique comprovantes, dados pessoais, credenciais ou informações de usuários nas Issues.
 
