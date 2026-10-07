@@ -6,10 +6,10 @@
 
 # 1.2.0 — 2026-10-07
 
-`normalizarCPF`, `normalizarCNPJ` e `normalizarCEP` retornam valor canônico validado ou `null`. Validação aceita formato bruto ou máscara exata; máscara de digitação continua tolerante.
+`normalizarCPF`, `normalizarCNPJ` y `normalizarCEP` devuelven un valor canónico validado o `null`. La validación acepta valores sin formato o con el formato exacto; las máscaras de escritura siguen siendo tolerantes.
 
 # 1.1.0 — 2026-10-07
 
-CNPJ alfanumérico e validação estrita de caracteres.
+CNPJ alfanumérico y validación estricta de caracteres.
 
-Documentação PT-BR/EN-US, apoio voluntário ainda sem canal de pagamento e verificações de publicação.
+Documentación en portugués brasileño e inglés de Estados Unidos, apoyo voluntario todavía sin canal de pago en esa versión y verificaciones de publicación.
