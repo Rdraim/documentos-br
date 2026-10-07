@@ -7,10 +7,12 @@
    ============================================================================ */
 
 export const soDigitos = (v) => String(v ?? '').replace(/\D/g, '');
+const semMascara = (v) => String(v ?? '').trim().replace(/[.\/\-]/g, '');
 
 /** Valida CPF pelo dígito verificador. Aceita com ou sem máscara. */
 export function validarCPF(valor) {
-  const cpf = soDigitos(valor);
+  const cpf = semMascara(valor);
+  if (!/^\d{11}$/.test(cpf)) return false;
   if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
   const dv = (base, pesoInicial) => {
     let soma = 0;
@@ -25,14 +27,14 @@ export function validarCPF(valor) {
 
 /** Valida CNPJ pelo dígito verificador. Aceita com ou sem máscara. */
 export function validarCNPJ(valor) {
-  const cnpj = soDigitos(valor);
-  if (cnpj.length !== 14 || /^(\d)\1{13}$/.test(cnpj)) return false;
+  const cnpj = semMascara(valor).toUpperCase();
+  if (!/^[A-Z0-9]{12}\d{2}$/.test(cnpj) || /^(\d)\1{13}$/.test(cnpj)) return false;
   const dv = (base) => {
     const pesos = base.length === 12
       ? [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]
       : [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
     let soma = 0;
-    for (let i = 0; i < base.length; i++) soma += +base[i] * pesos[i];
+    for (let i = 0; i < base.length; i++) soma += (base.charCodeAt(i) - 48) * pesos[i];
     const r = soma % 11;
     return r < 2 ? 0 : 11 - r;
   };
@@ -42,7 +44,7 @@ export function validarCNPJ(valor) {
 }
 
 /** Valida o FORMATO do CEP (8 dígitos). Não confere se o CEP existe. */
-export function validarCEP(valor) { return soDigitos(valor).length === 8; }
+export function validarCEP(valor) { return /^\d{8}$/.test(semMascara(valor)); }
 
 /** Máscara de CPF (000.000.000-00), funciona com entrada parcial. */
 export function mascararCPF(valor) {
@@ -54,11 +56,11 @@ export function mascararCPF(valor) {
 
 /** Máscara de CNPJ (00.000.000/0000-00), funciona com entrada parcial. */
 export function mascararCNPJ(valor) {
-  return soDigitos(valor).slice(0, 14)
-    .replace(/^(\d{2})(\d)/, '$1.$2')
-    .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
-    .replace(/\.(\d{3})(\d)/, '.$1/$2')
-    .replace(/(\d{4})(\d)/, '$1-$2');
+  const s = String(valor ?? '').toUpperCase().replace(/[^A-Z0-9]/g, '').slice(0, 14);
+  return s.slice(0, 2) + (s.length > 2 ? '.' + s.slice(2, 5) : '')
+    + (s.length > 5 ? '.' + s.slice(5, 8) : '')
+    + (s.length > 8 ? '/' + s.slice(8, 12) : '')
+    + (s.length > 12 ? '-' + s.slice(12, 14) : '');
 }
 
 /** Máscara de CEP (00000-000), funciona com entrada parcial. */
@@ -68,7 +70,7 @@ export function mascararCEP(valor) {
 
 /** Detecta e valida CPF ou CNPJ pelo tamanho. */
 export function validarCpfCnpj(valor) {
-  const d = soDigitos(valor);
+  const d = semMascara(valor);
   if (d.length === 11) return validarCPF(d);
   if (d.length === 14) return validarCNPJ(d);
   return false;
