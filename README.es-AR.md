@@ -6,6 +6,10 @@
 
 # documentos-br
 
+<!-- public-badges:start -->
+[![license](assets/support/badge-license.svg)](LICENSE) [![CI](assets/support/badge-ci.svg)](https://github.com/Rdraim/documentos-br/actions) [![release](assets/support/badge-release.svg)](https://github.com/Rdraim/documentos-br/releases) [![Git](assets/support/badge-git.svg)](https://github.com/Rdraim/documentos-br/commits/main)
+<!-- public-badges:end -->
+
 Verificación de dígitos de control de CPF y CNPJ numérico o alfanumérico, además de formato de CEP brasileño. Sin solicitudes de red.
 
 ## Empezá acá
