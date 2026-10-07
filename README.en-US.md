@@ -7,7 +7,7 @@
 # documentos-br
 
 <!-- public-badges:start -->
-[![license](assets/support/badge-license.svg)](LICENSE) [![CI](assets/support/badge-ci.svg)](https://github.com/Rdraim/documentos-br/actions) [![release](assets/support/badge-release.svg)](https://github.com/Rdraim/documentos-br/releases)
+[![license](assets/support/badge-license.svg)](LICENSE) [![CI](assets/support/badge-ci.svg)](https://github.com/Rdraim/documentos-br/actions) [![release](assets/support/badge-release.svg)](https://github.com/Rdraim/documentos-br/releases) [![Git](assets/support/badge-git.svg)](https://github.com/Rdraim/documentos-br/commits/main)
 <!-- public-badges:end -->
 
 CPF and numeric/alphanumeric CNPJ check digits, plus CEP formatting. No network requests.
