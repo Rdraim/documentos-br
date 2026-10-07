@@ -80,3 +80,10 @@ Código independente inspirado em problemas resolvidos no Nexus, projeto de Rodr
 [Como contribuir](CONTRIBUTING.md) · [Segurança](SECURITY.md) · [Apoio voluntário](SUPPORT.md)
 
 Referência oficial: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/programas-e-atividades/cnpj-alfanumerico
+
+
+## Uso prático — 1.2.0
+
+`normalizarCPF`, `normalizarCNPJ` e `normalizarCEP` retornam valor canônico validado ou `null`. Validação aceita formato bruto ou máscara exata; máscara de digitação continua tolerante.
+
+Exemplo executável com dados sintéticos: `node examples/uso.mjs`.

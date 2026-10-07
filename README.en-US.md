@@ -48,3 +48,10 @@ Alphanumeric CNPJ and strict character validation.
 MIT © Rodrigo Rodrigues
 
 Official reference: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/programas-e-atividades/cnpj-alfanumerico
+
+
+## Practical use — 1.2.0
+
+`normalizarCPF`, `normalizarCNPJ` and `normalizarCEP` return a validated canonical value or `null`. Validation accepts raw or exactly formatted input; typing masks remain tolerant.
+
+Runnable example with synthetic data: `node examples/uso.mjs`.
