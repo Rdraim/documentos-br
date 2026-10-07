@@ -1,6 +1,6 @@
 # documentos-br
 
-[Brazilian Portuguese](README.md) · [Voluntary support](SUPPORT.md)
+[Brazilian Portuguese](README.md) · [Voluntary support](SUPPORT.en-US.md)
 
 CPF and numeric/alphanumeric CNPJ check digits, plus CEP formatting. No network requests.
 
@@ -43,7 +43,7 @@ These standalone modules are inspired by work on Nexus, Rodrigo Rodrigues's inde
 
 Alphanumeric CNPJ and strict character validation.
 
-[Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Voluntary support](SUPPORT.md)
+[Contributing](CONTRIBUTING.md) · [Security](SECURITY.md) · [Voluntary support](SUPPORT.en-US.md)
 
 MIT © Rodrigo Rodrigues
 
@@ -55,3 +55,10 @@ Official reference: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/
 `normalizarCPF`, `normalizarCNPJ` and `normalizarCEP` return a validated canonical value or `null`. Validation accepts raw or exactly formatted input; typing masks remain tolerant.
 
 Runnable example with synthetic data: `node examples/uso.mjs`.
+
+
+## ☕ Support this work
+
+If this project helped you, consider buying me a coffee. Any amount is welcome, and sharing your feedback helps too.
+
+[![Support via Pix](assets/support/pix-en-us.svg)](SUPPORT.en-US.md)
