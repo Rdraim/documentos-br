@@ -1,5 +1,15 @@
 # documentos-br
 
+[English (United States)](README.en-US.md) · [Apoio voluntário](SUPPORT.md)
+
+## Revisão 1.1.0
+
+CNPJ alfanumérico e validação estrita de caracteres.
+
+CNPJ aceita A–Z e 0–9 nas 12 primeiras posições e dígitos numéricos nos dois verificadores, conforme ASCII menos 48 e módulo 11. Aceita letras minúsculas normalizadas. Validadores rejeitam caracteres inesperados, sem apagar letras para aceitar CPF/CEP inválido. Máscaras são conveniência de digitação. CEP verifica apenas 8 dígitos: não consulta existência. CPF/CNPJ válidos matematicamente não provam cadastro, titularidade ou identidade. Fixtures de teste não são dados de clientes.
+
+Baixe pelo GitHub; não é necessário instalar um pacote homônimo do npm. Para consumir em outro projeto, use uma revisão Git fixada (tag v1.1.0) ou copie o módulo e preserve a licença. Os exemplos abaixo usam importação local após o clone. Node.js 22 ou superior para os testes.
+
 Validação e máscara de **CPF, CNPJ e CEP** para JavaScript. Sem dependência.
 
 Validação de verdade — por **dígito verificador**, não só formato: rejeita
@@ -9,7 +19,9 @@ entrada **parcial** (enquanto o usuário digita).
 ## Instalação
 
 ```bash
-npm install documentos-br
+git clone https://github.com/techrodrigo21-ux/documentos-br.git
+cd documentos-br
+npm test
 ```
 
 ## Uso
@@ -18,7 +30,7 @@ npm install documentos-br
 import {
   validarCPF, validarCNPJ, validarCEP, validarCpfCnpj,
   mascararCPF, mascararCNPJ, mascararCEP, soDigitos,
-} from 'documentos-br';
+} from './src/index.js';
 
 validarCPF('111.444.777-35');        // true
 validarCPF('111.444.777-00');        // false (DV errado)
@@ -60,3 +72,11 @@ npm test
 ## Licença
 
 MIT © Rodrigo Rodrigues
+
+## Manutenção e apoio
+
+Código independente inspirado em problemas resolvidos no Nexus, projeto de Rodrigo Rodrigues. Não inclui banco, configuração privada, logs, dados de usuários ou credenciais. Evolução coordenada significa revisar mudanças relacionadas no mesmo ciclo; não há cópia automática de arquivos privados.
+
+[Como contribuir](CONTRIBUTING.md) · [Segurança](SECURITY.md) · [Apoio voluntário](SUPPORT.md)
+
+Referência oficial: https://www.gov.br/receitafederal/pt-br/acesso-a-informacao/acoes-e-programas/programas-e-atividades/cnpj-alfanumerico
