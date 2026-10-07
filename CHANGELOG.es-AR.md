@@ -6,6 +6,10 @@
 
 # 1.2.0 — 2026-10-07
 
+## 1.2.1 — 2026-10-07
+
+Identidad Rdraim, presentación gráfica, revisión de compatibilidad y control de historial más eficiente. API de ejecución conservada.
+
 `normalizarCPF`, `normalizarCNPJ` y `normalizarCEP` devuelven un valor canónico validado o `null`. La validación acepta valores sin formato o con el formato exacto; las máscaras de escritura siguen siendo tolerantes.
 
 # 1.1.0 — 2026-10-07
